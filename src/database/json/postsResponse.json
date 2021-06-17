@@ -1,0 +1,108 @@
+[
+    {
+      "id": 10,
+      "title": "How to use multiple accounts on the same computer to collaborate on GIT",
+      "content": "## How to use multiple accounts on the same computer to collaborate on GIT. \n*To help people who are using two or more different accounts on GIT.* \n\n**Problem:** \n\nIn many cases, especially for those working from home office due to the circumstances of the pandemic today, there is a need for commits to be made at GIT, however for each project, using a repository and a different user. \n\n**Example:** \n\n* In Project A, I’m contributing to GIT for a company where I’m part time freelance. \n\n* In Project B, I am contributing in GIT to another company in which I am consulting and defining architecture. \n\n* Finally, in Project C, I am using new knowledge that I study and testing new tools and frameworks and contributing to my personal GIT on Github. \n\n**Scenario you would like:** \n\n* I cloned Project A and made changes. When committing, it should be done for \"Repository A\" and with \"User A\". \n\n* Similarly, the same should happen for work on Projects B and Project C. \n\n**Proposed solution:** \n\nThe proposed way is for you to configure two or more different SSH keys. That way you can use them on a single user on the computer. \n\nTo do this, you must create the second key by executing the following command in a terminal: \n\n`ssh-keygen -t rsa -C \"email@projetoB.com\"` \n\nRunning this command will display some messages and will be asked to select the directory that will generate your ssh key: Enter file in which to save the key (/Users/YourUser/.ssh/id_rsa). \n\nAt that point you must specify a different name for the file to each project (otherwise will be replaced the existing one), you can specify something: /Users/YourUser/.ssh/id_rsa_projectB. \n\nThen repeat the process for linking the public key of this SSH key to the second user, and so on. \n\nThus now you have two or more SSH keys but need to set when to use each. To do this, create a file named config in the directory ~/.ssh with content like this: \n\n ```codeStart\n#First ProjectA Account\nHost projectA.com\nHostName projectA.com\nUser git\nIdentityFile ~/.ssh/id_rsa \n\n#Second ProjectB Acount\nHost projectB.com\nHostName projectB.com\nUser git\nIdentityFile ~/.ssh/id_rsa_projectB \n\n#Third ProjectC Github Acount\nHost github.com\nHostName github.com\nUser git\nIdentityFile ~/.ssh/id_rsa_github\n``` \n\nYou make the `clone` in different directories and when you pushin each directory you will be using a different account. \n\nNow imagine that we have the following repository to clone git@projectA.com:YourUser/test.git. \n\nYou can use one of the two hosts in the ~/.ssh/config. \n\nWhen using git clone `git clone git@projectA.com:YourUser/test.git you’ll` be using your default account. \n\nTo use the second account, just change the repository host: git clone git@projectB.com:YourUser/test.git. \n\nIn the directory of other users might need to configure and user.name and user.email. This can be done as follows: \n\ngit config --add user.name \"ProjectB Acount\"\n\ngit config --add user.email email@projectB.com\n` \n\nI hope helps you. See you! ",
+      "slug": "how-to-use-multiple-git-accounts-on-the-same-computer",
+      "author": {
+        "id": 2,
+        "name": "R. Engelberg",
+        "published_at": "2021-02-03T19:44:06.630Z",
+        "created_at": "2021-02-03T19:41:52.739Z",
+        "updated_at": "2021-02-03T23:13:44.781Z"
+      },
+      "category": {
+        "id": 4,
+        "name": "Git",
+        "published_at": "2021-02-03T19:44:06.630Z",
+        "created_at": "2021-02-03T19:41:52.739Z",
+        "updated_at": "2021-02-03T23:13:44.781Z"
+      },
+      "published_at": "2021-02-03T19:44:06.630Z",
+      "created_at": "2021-02-03T19:41:52.739Z",
+      "updated_at": "2021-02-03T23:13:44.781Z",
+      "cover": {
+        "id": 13,
+        "name": "florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 1920,
+        "height": 1280,
+        "formats": {
+          "large": {
+            "ext": ".png",
+            "url": "https://res.cloudinary.com/rodrigoengelberg/image/upload/v1623270778/site/Git_Multiples_accounts_jnnkbq.png",
+            "hash": "large_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+            "mime": "image/png",
+            "name": "large_florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+            "path": null,
+            "size": 67.3,
+            "width": 1000,
+            "height": 667,
+            "provider_metadata": {
+              "public_id": "large_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+              "resource_type": "image"
+            }
+          },
+          "small": {
+            "ext": ".png",
+            "url": "https://res.cloudinary.com/rodrigoengelberg/image/upload/v1623270778/site/Git_Multiples_accounts_jnnkbq.png",
+            "hash": "small_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+            "mime": "image/png",
+            "name": "small_florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+            "path": null,
+            "size": 24.84,
+            "width": 500,
+            "height": 333,
+            "provider_metadata": {
+              "public_id": "small_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+              "resource_type": "image"
+            }
+          },
+          "medium": {
+            "ext": ".png",
+            "url": "https://res.cloudinary.com/rodrigoengelberg/image/upload/v1623270778/site/Git_Multiples_accounts_jnnkbq.png",
+            "hash": "medium_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+            "mime": "image/png",
+            "name": "medium_florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+            "path": null,
+            "size": 44.71,
+            "width": 750,
+            "height": 500,
+            "provider_metadata": {
+              "public_id": "medium_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+              "resource_type": "image"
+            }
+          },
+          "thumbnail": {
+            "ext": ".png",
+            "url": "https://res.cloudinary.com/rodrigoengelberg/image/upload/v1623270778/site/Git_Multiples_accounts_jnnkbq.png",
+            "hash": "thumbnail_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+            "mime": "image/png",
+            "name": "thumbnail_florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
+            "path": null,
+            "size": 7.2,
+            "width": 234,
+            "height": 156,
+            "provider_metadata": {
+              "public_id": "thumbnail_florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+              "resource_type": "image"
+            }
+          }
+        },
+        "hash": "florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+        "ext": ".png",
+        "mime": "image/png",
+        "size": 206.33,
+        "url": "https://res.cloudinary.com/rodrigoengelberg/image/upload/v1623270778/site/Git_Multiples_accounts_jnnkbq.png",
+        "previewUrl": null,
+        "provider": "cloudinary",
+        "provider_metadata": {
+          "public_id": "florian_olivo_4hb_J_eym_Z1o_unsplash_dd8d2d3947",
+          "resource_type": "image"
+        },
+        "created_at": "2021-03-30T17:01:34.685Z",
+        "updated_at": "2021-03-30T17:01:34.717Z"
+      }
+    }
+  ]
