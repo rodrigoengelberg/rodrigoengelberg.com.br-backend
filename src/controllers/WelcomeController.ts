@@ -1,8 +1,5 @@
 import { Request, Response } from 'express'
 
-import db from '../database/connection'
-import convertHourToMinutes from '../utils/convertHourToMinutes'
-
 import WELCOMEJSON from '../database/json/welcomeResponse.json';
 
 interface HomeWelcome {
