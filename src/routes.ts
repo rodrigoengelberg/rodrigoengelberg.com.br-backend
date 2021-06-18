@@ -17,6 +17,7 @@ routes.get('/welcome', welcomeControllers.index)
 routes.get('/contact', contactController.index)
 routes.get('/about', aboutController.index)
 routes.get('/posts', postsController.index)
+routes.get('/posts/count', postsController.count)
 routes.get('/projects', projectsController.index)
 
 export default routes

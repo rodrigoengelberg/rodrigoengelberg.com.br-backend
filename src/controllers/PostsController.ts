@@ -93,4 +93,8 @@ export default class ClassesController {
         return response.json(posts)
     }
 
+    async count(request: Request, response: Response) {
+        return response.json(POSTSJSON.length)
+    }
+
 }
